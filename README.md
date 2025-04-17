@@ -14,13 +14,13 @@ This project explores the feasibility of using **Apache Arrow** as a **columnar 
 
 ## 🚀 Queries Executed
 
-| Query                          | Description                                    | Rows Scanned | Result Size    | Latency   | Peak Memory |
-| ------------------------------ | ---------------------------------------------- | ------------ | -------------- | --------- | ----------- |
-| `get_field_values_by_doc_ids`  | Fetch field `level` for 100 specific doc_ids   | 10M          | 100 values     | 882.29 ms | 30.36 MB    |
-| `get_field_values`             | Extract all values for `source_region`         | 10M          | 10M values     | 1.01 s    | 109.89 MB   |
-| `get_numeric_stats_by_doc_ids` | Min/Max/Sum/Avg of `payload_size` for 100 docs | 10M          | 1 stats result | 914.12 ms | 113.08 MB   |
-| `get_numeric_stats`            | Global stats for `payload_size`                | 10M          | 1 stats result | 601.55 ms | 114.28 MB   |
-| `get_tag_buckets`              | Bucket and count unique `tags`                 | 10M          | 49 unique tags | 2.95 s    | 407.81 MB   |
+| Query                        | Description                             | Rows Scanned | Result Size                     | Latency   | Peak Memory |
+| ---------------------------- | --------------------------------------- | ------------ | ------------------------------- | --------- | ----------- |
+| get_field_values_by_doc_ids  | Level values for 100 doc_ids (5 unique) | 262,144      | 262,144 rows                    | 763.368ms | 30.94 MB    |
+| get_field_values             | All source_regions (5 unique)           | 10,000,000   | 10,000,000 rows                 | 1.076s    | 114.11 MB   |
+| get_numeric_stats_by_doc_ids | Payload stats for 100 doc_ids           | 262,144      | min=85, max=20464, avg=10799.62 | 740.270ms | 39.62 MB    |
+| get_numeric_stats            | All payload stats (count=10M)           | 10,000,000   | min=50, max=20479, avg=10264.00 | 625.174ms | 41.11 MB    |
+| get_tag_buckets              | Tag buckets (49 unique tags)            | 10,000,000   | 10,000,000 rows                 | 2.985s    | 419.28 MB   |
 
 ## 📊 Notable Observations
 
