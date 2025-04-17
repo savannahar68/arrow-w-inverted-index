@@ -6,7 +6,8 @@ This project explores the feasibility of using **Apache Arrow** as a **columnar 
 
 - **Format:** Parquet
 - **Rows:** 10 million
-- **File size:** 657 MB
+- **Raw data size** 8.1gb
+- **File size:** 600 MB
 - **Peak memory usage:** ~300 MB
 - **Structure:** Nested JSON
 - **File used:** `logs_optimized.parquet`
@@ -14,13 +15,13 @@ This project explores the feasibility of using **Apache Arrow** as a **columnar 
 
 ## 🚀 Queries Executed
 
-| Query                        | Description                             | Rows Scanned | Result Size                     | Latency   | Peak Memory |
-| ---------------------------- | --------------------------------------- | ------------ | ------------------------------- | --------- | ----------- |
-| get_field_values_by_doc_ids  | Level values for 100 doc_ids (5 unique) | 262,144      | 262,144 rows                    | 763.368ms | 30.94 MB    |
-| get_field_values             | All source_regions (5 unique)           | 10,000,000   | 10,000,000 rows                 | 1.076s    | 114.11 MB   |
-| get_numeric_stats_by_doc_ids | Payload stats for 100 doc_ids           | 262,144      | min=85, max=20464, avg=10799.62 | 740.270ms | 39.62 MB    |
-| get_numeric_stats            | All payload stats (count=10M)           | 10,000,000   | min=50, max=20479, avg=10264.00 | 625.174ms | 41.11 MB    |
-| get_tag_buckets              | Tag buckets (49 unique tags)            | 10,000,000   | 10,000,000 rows                 | 2.985s    | 419.28 MB   |
+| Query                        | Description                             | Rows Scanned | Latency   | Peak Memory |
+| ---------------------------- | --------------------------------------- | ------------ | --------- | ----------- |
+| get_field_values_by_doc_ids  | Level values for 100 doc_ids (5 unique) | 524,288      | 749.207ms | 29.50 MB    |
+| get_field_values             | All source_regions (5 unique)           | 10,000,000   | 998.085ms | 111.28 MB   |
+| get_numeric_stats_by_doc_ids | Payload stats for 100 doc_ids           | 524,288      | 738.985ms | 36.81 MB    |
+| get_numeric_stats            | All payload stats (count=10M)           | 10,000,000   | 588.706ms | 38.20 MB    |
+| get_tag_buckets              | Tag buckets (49 unique tags)            | 10,000,000   | 2.986s    | 423.19 MB   |
 
 ## 📊 Notable Observations
 

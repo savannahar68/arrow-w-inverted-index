@@ -1511,7 +1511,7 @@ fn main() -> Result<()> {
             records,
             file_path,
             Compression::ZSTD(Default::default()), // Use ZSTD
-            Some(256 * 1024),                      // 128k rows per row group
+            Some(512 * 1024),                      // 128k rows per row group
         )?;
         println!("Finished writing.");
     } else {
