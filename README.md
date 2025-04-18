@@ -15,7 +15,7 @@ This project explores the feasibility of using **Apache Arrow** as a **columnar 
 
 ## 🚀 Queries Executed
 
-| Query                        | Description                             | Rows Scanned | Latency   | Peak Memory | OpenSearch Latency |
+| Query                        | Description                             | Rows Scanned | Arrow-parquet Latency   | Peak Memory | OpenSearch Latency |
 |-----------------------------|-----------------------------------------|--------------|-----------|-------------|---------------------|
 | get_field_values_by_doc_ids | Level values for 100 doc_ids (5 unique) | 524,288      | 749.207ms | 29.50 MB    | 20 ms               |
 | get_field_values            | All source_regions (5 unique)           | 10,000,000   | 998.085ms | 111.28 MB   | 280 ms              |
