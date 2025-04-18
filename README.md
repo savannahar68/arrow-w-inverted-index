@@ -15,13 +15,14 @@ This project explores the feasibility of using **Apache Arrow** as a **columnar 
 
 ## 🚀 Queries Executed
 
-| Query                        | Description                             | Rows Scanned | Latency   | Peak Memory |
-| ---------------------------- | --------------------------------------- | ------------ | --------- | ----------- |
-| get_field_values_by_doc_ids  | Level values for 100 doc_ids (5 unique) | 524,288      | 749.207ms | 29.50 MB    |
-| get_field_values             | All source_regions (5 unique)           | 10,000,000   | 998.085ms | 111.28 MB   |
-| get_numeric_stats_by_doc_ids | Payload stats for 100 doc_ids           | 524,288      | 738.985ms | 36.81 MB    |
-| get_numeric_stats            | All payload stats (count=10M)           | 10,000,000   | 588.706ms | 38.20 MB    |
-| get_tag_buckets              | Tag buckets (49 unique tags)            | 10,000,000   | 2.986s    | 423.19 MB   |
+| Query                        | Description                             | Rows Scanned | Latency   | Peak Memory | OpenSearch Latency |
+|-----------------------------|-----------------------------------------|--------------|-----------|-------------|---------------------|
+| get_field_values_by_doc_ids | Level values for 100 doc_ids (5 unique) | 524,288      | 749.207ms | 29.50 MB    | 20 ms               |
+| get_field_values            | All source_regions (5 unique)           | 10,000,000   | 998.085ms | 111.28 MB   | 280 ms              |
+| get_numeric_stats_by_doc_ids | Payload stats for 100 doc_ids           | 524,288      | 738.985ms | 36.81 MB    | 26 ms               |
+| get_numeric_stats           | All payload stats (count=10M)           | 10,000,000   | 588.706ms | 38.20 MB    | 435 ms              |
+| get_tag_buckets             | Tag buckets (49 unique tags)            | 10,000,000   | 2.986s    | 423.19 MB   | 748 ms              |
+
 
 ## 📊 Notable Observations
 
